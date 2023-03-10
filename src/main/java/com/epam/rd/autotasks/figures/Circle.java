@@ -4,7 +4,7 @@ class Circle extends Figure {
     Point center;
     double radius;
     public Circle(Point center, double radius) {
-        if ( radius <= 0 || center == null){throw new IllegalArgumentException("Radius can't be less than or equal to zero!");}
+        if ( radius <= 0 || center == null) {throw new IllegalArgumentException("Radius can't be less than or equal to zero!");}
         this.center = center;
         this.radius = radius;
     }

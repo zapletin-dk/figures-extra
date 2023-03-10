@@ -28,10 +28,10 @@ class Quadrilateral extends Figure{
     }
 
     private boolean Degenerate(){
-        double AB = sqrt(pow((vertice_B.getX()- vertice_A.getX()), 2)+pow((vertice_B.getY()- vertice_A.getY()), 2));
-        double BC = sqrt(pow((vertice_C.getX()- vertice_B.getX()), 2)+pow((vertice_C.getY()- vertice_B.getY()), 2));
-        double CD = sqrt(pow((vertice_D.getX()- vertice_C.getX()), 2)+pow((vertice_D.getY()- vertice_C.getY()), 2));
-        double DA = sqrt(pow((vertice_A.getX()- vertice_D.getX()), 2)+pow((vertice_A.getY()- vertice_D.getY()), 2));
+        double AB = sqrt(pow((vertice_B.getX()- vertice_A.getX()), 2) + pow((vertice_B.getY()- vertice_A.getY()), 2));
+        double BC = sqrt(pow((vertice_C.getX()- vertice_B.getX()), 2) + pow((vertice_C.getY()- vertice_B.getY()), 2));
+        double CD = sqrt(pow((vertice_D.getX()- vertice_C.getX()), 2) + pow((vertice_D.getY()- vertice_C.getY()), 2));
+        double DA = sqrt(pow((vertice_A.getX()- vertice_D.getX()), 2) + pow((vertice_A.getY()- vertice_D.getY()), 2));
         return !(AB + BC + CD > DA && BC + CD + DA > AB && CD + DA + AB > BC && DA + AB + BC > CD);
     }
     private double area() {
@@ -62,15 +62,15 @@ class Quadrilateral extends Figure{
         Point point;
         if ((midAB.getX()-midDC.getX())*(midBC.getY()-midAD.getY())-(midAB.getY()-midDC.getY())*(midBC.getX()-midAD.getX()) != 0){
             double xPoint = (((midAB.getX()*midDC.getY()-midAB.getY()*midDC.getX())*(midBC.getX()- midAD.getX())-(midAB.getX()-midDC.getX())*(midBC.getX()* midAD.getY()-midBC.getY()*midAD.getX())))/((midAB.getX()-midDC.getX())*(midBC.getY()-midAD.getY())-(midAB.getY()-midDC.getY())*(midBC.getX()-midAD.getX()));
-            if(xPoint == -0) xPoint = 0;
+            if (xPoint == -0) xPoint = 0;
             double yPoint = (((midAB.getX()*midDC.getY()-midAB.getY()*midDC.getX())*(midBC.getY()- midAD.getY())-(midAB.getY()-midDC.getY())*(midBC.getX()* midAD.getY()-midBC.getY()*midAD.getX())))/((midAB.getX()-midDC.getX())*(midBC.getY()-midAD.getY())-(midAB.getY()-midDC.getY())*(midBC.getX()-midAD.getX()));
-            if(yPoint == -0) yPoint = 0;
+            if (yPoint == -0) yPoint = 0;
             int checkPoint = (int) (((xPoint-midAB.getX())*(midDC.getY()-midAB.getY()))-((yPoint-midAB.getY())*(midDC.getX()-midAB.getX())));
             int checkPointAnother = (int) (((xPoint-midBC.getX())*(midAD.getY()-midBC.getY()))-((yPoint-midBC.getY())*(midAD.getX()-midBC.getX())));
             if (checkPoint == 0 && checkPointAnother == 0){
-                if(xPoint >= midAB.getX() && xPoint <= midDC.getX() || xPoint >= midDC.getX() && xPoint <= midAB.getX()){
+                if (xPoint >= midAB.getX() && xPoint <= midDC.getX() || xPoint >= midDC.getX() && xPoint <= midAB.getX()){
                     if (xPoint >= midBC.getX() && xPoint <= midAD.getX() || xPoint >= midAD.getX() && xPoint <= midBC.getX()){
-                        point = new Point(xPoint, yPoint); //Все проверки прошли
+                        point = new Point(xPoint, yPoint);
                     }else{
                         point = null;
                     }
